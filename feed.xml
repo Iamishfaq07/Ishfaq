@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Ishfaq Ahmad Bhat — Writing</title>
+  <link>https://ishfaqbhat.vercel.app/blog.html</link>
+  <description>Security writeups, research notes and thoughts on teaching security.</description>
+  <language>en</language>
+  <lastBuildDate>Sun, 12 Jul 2026 09:00:00 GMT</lastBuildDate>
+  <atom:link href="https://ishfaqbhat.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Why I built a free 485-lesson security course</title>
+    <link>https://ishfaqbhat.vercel.app/post.html?p=why-i-built-a-free-security-course</link>
+    <guid isPermaLink="false">https://ishfaqbhat.vercel.app/post/why-i-built-a-free-security-course</guid>
+    <pubDate>Sun, 12 Jul 2026 09:00:00 GMT</pubDate>
+    <author>bhatishfaq966@gmail.com (Ishfaq Ahmad Bhat)</author>
+    <category>Education</category>
+    <description>Most &quot;beginner&quot; security material assumes you already know Linux, networking and how the web works. KashSec started as an attempt to fix that gap — and turned into 26 paths.</description>
+  </item>
+  <item>
+    <title>JWT verification: the four ways it actually breaks</title>
+    <link>https://ishfaqbhat.vercel.app/post.html?p=jwt-verification-failures</link>
+    <guid isPermaLink="false">https://ishfaqbhat.vercel.app/post/jwt-verification-failures</guid>
+    <pubDate>Sun, 28 Jun 2026 09:00:00 GMT</pubDate>
+    <author>bhatishfaq966@gmail.com (Ishfaq Ahmad Bhat)</author>
+    <category>AppSec</category>
+    <description>alg=none is the famous one, but it&apos;s rarely the bug you find. A walk through the failure modes I keep seeing in real APIs, and what a correct verifier looks like.</description>
+  </item>
+  <item>
+    <title>Prompt injection is an architecture problem</title>
+    <link>https://ishfaqbhat.vercel.app/post.html?p=prompt-injection-is-an-architecture-problem</link>
+    <guid isPermaLink="false">https://ishfaqbhat.vercel.app/post/prompt-injection-is-an-architecture-problem</guid>
+    <pubDate>Sat, 30 May 2026 09:00:00 GMT</pubDate>
+    <author>bhatishfaq966@gmail.com (Ishfaq Ahmad Bhat)</author>
+    <category>AI Security</category>
+    <description>You cannot prompt your way out of prompt injection. The fix is the same one we already use everywhere else in security: don&apos;t give the untrusted thing authority.</description>
+  </item>
+</channel>
+</rss>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Ishfaq Ahmad Bhat</title>
+<meta name="description" content="A post by Ishfaq Ahmad Bhat.">
+<meta name="theme-color" content="#080a0f">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ishfaqbhat.vercel.app/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Ishfaq Ahmad Bhat — Writing" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark">IB</span> Ishfaq Bhat</a>
+    <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="/#about">About</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog.html" class="active">Writing</a>
+      <a href="/#contact">Contact</a>
+      <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+  <div class="page-head" style="padding-bottom:0">
+    <a class="back-link" href="/blog.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      All posts
+    </a>
+  </div>
+  <article class="post" id="post"><p class="loading">Loading…</p></article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="year">2026</span> Ishfaq Ahmad Bhat · Built from scratch, no trackers.</span>
+    <span><a href="/feed.xml">RSS</a> · <a href="https://kashsec.vercel.app/" target="_blank" rel="noopener">KashSec Academy</a></span>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
+<script src="/md.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('post');
+  var slug = new URLSearchParams(location.search).get('p') || '';
+
+  function fail(msg) {
+    el.innerHTML = '<h1>Not found</h1><p class="empty">' + window.esc(msg) +
+      ' <a href="/blog.html">Back to all posts</a>.</p>';
+  }
+
+  if (!/^[a-z0-9-]+$/.test(slug)) { fail('That post link looks wrong.'); return; }
+
+  fetch('/posts/index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (posts) {
+      // Only ever fetch a slug the index knows about.
+      var meta = posts.filter(function (p) { return p.slug === slug; })[0];
+      if (!meta) { fail('No post with that name.'); return null; }
+
+      document.title = meta.title + ' — Ishfaq Ahmad Bhat';
+      var d = document.querySelector('meta[name="description"]');
+      if (d) d.setAttribute('content', meta.summary);
+
+      return fetch('/posts/' + slug + '.md').then(function (r) {
+        if (!r.ok) throw new Error('missing');
+        return r.text();
+      }).then(function (md) {
+        // The index owns the title; drop a duplicate leading H1 from the file.
+        var body = md.replace(/^\s*#\s+.*\n+/, '');
+        var out = window.renderMarkdown(body);
+        el.innerHTML =
+          '<header>' +
+            '<div class="post-meta">' +
+              '<time datetime="' + window.esc(meta.date) + '">' + window.esc(window.formatDate(meta.date)) + '</time>' +
+              (meta.tag ? '<span class="pill">' + window.esc(meta.tag) + '</span>' : '') +
+              (meta.readingTime ? '<span>' + window.esc(meta.readingTime) + ' min read</span>' : '') +
+            '</div>' +
+            '<h1>' + window.esc(meta.title) + '</h1>' +
+            '<p class="lede" style="margin-bottom:0">' + window.esc(meta.summary) + '</p>' +
+          '</header>' +
+          '<div class="md">' + out.html + '</div>' +
+          '<div class="post-foot">' +
+            '<a class="back-link" href="/blog.html">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>' +
+              'All posts</a>' +
+            '<a class="btn btn-ghost" href="mailto:bhatishfaq966@gmail.com?subject=' +
+              encodeURIComponent('Re: ' + meta.title) + '">Reply by email</a>' +
+          '</div>';
+
+        // Deep-link to a heading if one was requested.
+        if (location.hash) {
+          var target = document.getElementById(location.hash.slice(1));
+          if (target) target.scrollIntoView();
+        }
+      });
+    })
+    .catch(function () { fail('That post could not be loaded.'); });
+})();
+</script>
+</body>
+</html>

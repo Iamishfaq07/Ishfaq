@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ishfaqbhat.vercel.app/sitemap.xml

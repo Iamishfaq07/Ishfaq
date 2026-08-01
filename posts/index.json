@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "why-i-built-a-free-security-course",
+    "title": "Why I built a free 485-lesson security course",
+    "summary": "Most \"beginner\" security material assumes you already know Linux, networking and how the web works. KashSec started as an attempt to fix that gap — and turned into 26 paths.",
+    "date": "2026-07-12",
+    "tag": "Education",
+    "readingTime": 6
+  },
+  {
+    "slug": "jwt-verification-failures",
+    "title": "JWT verification: the four ways it actually breaks",
+    "summary": "alg=none is the famous one, but it's rarely the bug you find. A walk through the failure modes I keep seeing in real APIs, and what a correct verifier looks like.",
+    "date": "2026-06-28",
+    "tag": "AppSec",
+    "readingTime": 8
+  },
+  {
+    "slug": "prompt-injection-is-an-architecture-problem",
+    "title": "Prompt injection is an architecture problem",
+    "summary": "You cannot prompt your way out of prompt injection. The fix is the same one we already use everywhere else in security: don't give the untrusted thing authority.",
+    "date": "2026-05-30",
+    "tag": "AI Security",
+    "readingTime": 7
+  }
+]

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Ishfaq Ahmad Bhat</title>
+<meta name="description" content="Security writeups, CTF walkthroughs and research notes by Ishfaq Ahmad Bhat.">
+<link rel="canonical" href="https://ishfaqbhat.vercel.app/blog.html">
+<meta name="theme-color" content="#080a0f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Writing — Ishfaq Ahmad Bhat">
+<meta property="og:description" content="Security writeups, CTF walkthroughs and research notes.">
+<meta property="og:image" content="https://ishfaqbhat.vercel.app/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Ishfaq Ahmad Bhat — Writing" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark">IB</span> Ishfaq Bhat</a>
+    <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="/#about">About</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog.html" class="active">Writing</a>
+      <a href="/#contact">Contact</a>
+      <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <header class="wrap page-head">
+    <a class="back-link" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Back home
+    </a>
+    <h1 style="margin:16px 0 10px">Writing</h1>
+    <p class="sec-sub">Writeups, research notes, and the occasional argument about how security should be taught. <a href="/feed.xml">RSS</a>.</p>
+  </header>
+
+  <div class="wrap" style="padding-bottom:80px">
+    <div class="filters" id="filters"></div>
+    <div class="post-list" id="posts"><p class="loading">Loading posts…</p></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="year">2026</span> Ishfaq Ahmad Bhat · Built from scratch, no trackers.</span>
+    <span><a href="/feed.xml">RSS</a> · <a href="https://kashsec.vercel.app/" target="_blank" rel="noopener">KashSec Academy</a></span>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
+<script>
+(function () {
+  var listEl = document.getElementById('posts');
+  var filtersEl = document.getElementById('filters');
+  var all = [];
+  var active = 'All';
+
+  function draw() {
+    var shown = active === 'All' ? all : all.filter(function (p) { return p.tag === active; });
+    listEl.innerHTML = shown.length
+      ? shown.map(window.postCardHTML).join('')
+      : '<p class="empty">Nothing filed under “' + window.esc(active) + '” yet.</p>';
+    filtersEl.querySelectorAll('.chip').forEach(function (c) {
+      c.setAttribute('aria-pressed', String(c.dataset.tag === active));
+    });
+  }
+
+  fetch('/posts/index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (posts) {
+      all = posts.filter(function (p) { return !p.draft; })
+                 .sort(function (a, b) { return b.date.localeCompare(a.date); });
+      if (!all.length) { listEl.innerHTML = '<p class="empty">No posts yet — first one is on its way.</p>'; return; }
+
+      var tags = ['All'].concat(all.map(function (p) { return p.tag; })
+        .filter(function (t, i, a) { return t && a.indexOf(t) === i; }).sort());
+      filtersEl.innerHTML = tags.map(function (t) {
+        return '<button class="chip" data-tag="' + window.esc(t) + '" aria-pressed="false">' + window.esc(t) + '</button>';
+      }).join('');
+      filtersEl.addEventListener('click', function (e) {
+        var chip = e.target.closest('.chip');
+        if (!chip) return;
+        active = chip.dataset.tag;
+        draw();
+      });
+      draw();
+    })
+    .catch(function () {
+      listEl.innerHTML = '<p class="empty">Posts couldn\'t be loaded right now.</p>';
+    });
+})();
+</script>
+</body>
+</html>
