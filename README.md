@@ -17,13 +17,16 @@ Open <http://localhost:8000>.
 
 ```
 .
-├── index.html          # one-page portfolio: hero, about, skills, projects, experience, contact
-├── blog.html           # post index with tag filters
+├── index.html          # hero, about, skills, projects, experience, certs, awards, contact
+├── resume.html         # printable résumé (print stylesheet included)
+├── blog.html           # post index with search + tag filters
 ├── post.html           # single post — reads ?p=<slug>, renders the markdown
 ├── 404.html
-├── styles.css          # the whole design system (dark + light themes)
+├── styles.css          # the whole design system (dark + light) plus the motion layer
 ├── main.js             # theme toggle, nav, scroll reveal, shared post-card markup
+├── anim.js             # preloader, counters, tilt, magnetic buttons, command palette…
 ├── md.js               # small Markdown renderer (escapes raw HTML by design)
+├── hl.js               # tiny syntax highlighter for code blocks
 ├── posts/
 │   ├── index.json      # source of truth: every post's metadata
 │   └── <slug>.md       # the post body
@@ -32,6 +35,21 @@ Open <http://localhost:8000>.
 │   └── build-og.js     # renders assets/og.png with Playwright
 └── vercel.json
 ```
+
+## Interaction
+
+- **⌘K / Ctrl-K** (or `/`) opens a command palette — sections, pages and every post,
+  matched by subsequence so `jwtv` finds *JWT verification*. `↑` `↓` to move, `↵` to open,
+  `esc` to close.
+- Posts get a sticky table of contents with scroll-spy, a reading-progress bar, copy
+  buttons on every code block, syntax highlighting, share actions and prev/next links.
+- The blog index has live search on top of the tag filters.
+- Dark by default with a light theme remembered in `localStorage`; the theme is applied
+  inline in `<head>`, so there's no flash on load.
+
+Everything in `anim.js` is additive — if it never runs, the pages are still complete and
+readable — and every module checks `prefers-reduced-motion` before animating. Pointer
+effects (tilt, spotlight, magnetic buttons) are skipped entirely on touch devices.
 
 ## Writing a post
 

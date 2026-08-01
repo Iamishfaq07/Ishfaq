@@ -16,9 +16,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
-
 </head>
 <body>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div id="readbar" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav">
@@ -28,12 +30,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="/#about">About</a>
-      <a href="/#skills">Skills</a>
-      <a href="/#projects">Projects</a>
-      <a href="/#experience">Experience</a>
+      <a href="/#about" data-pal="About" data-pal-kind="Go to">About</a>
+      <a href="/#skills" data-pal="Skills" data-pal-kind="Go to">Skills</a>
+      <a href="/#projects" data-pal="Projects" data-pal-kind="Go to">Projects</a>
+      <a href="/#experience" data-pal="Experience" data-pal-kind="Go to">Experience</a>
+      <a href="/#certs" data-pal="Certifications" data-pal-kind="Go to">Certs</a>
+      <a href="/resume.html" data-pal="Résumé" data-pal-kind="Open">Résumé</a>
       <a href="/blog.html" class="active">Writing</a>
-      <a href="/#contact">Contact</a>
+      <a href="/#contact" data-pal="Contact" data-pal-kind="Go to">Contact</a>
+      <button class="pal-btn nav-pal" data-pal-open aria-label="Open command palette">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd">⌘K</span>
+      </button>
       <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
     </div>
   </div>
@@ -46,7 +54,10 @@
       All posts
     </a>
   </div>
-  <article class="post" id="post"><p class="loading">Loading…</p></article>
+  <div class="post-layout">
+    <article class="post" id="post"><p class="loading">Loading…</p></article>
+    <aside class="toc" id="toc" hidden></aside>
+  </div>
 </main>
 
 <footer>
@@ -56,11 +67,36 @@
   </div>
 </footer>
 
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<div id="palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+  <div class="pal-box">
+    <div class="pal-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="palInput" type="text" placeholder="Jump to a section or a post…" autocomplete="off" spellcheck="false">
+      <span class="kbd">esc</span>
+    </div>
+    <ul id="palList"></ul>
+    <div class="pal-foot">
+      <span><span class="kbd">↑</span> <span class="kbd">↓</span> navigate</span>
+      <span><span class="kbd">↵</span> open</span>
+      <span><span class="kbd">/</span> search</span>
+    </div>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
 <script src="/main.js"></script>
+<script src="/anim.js"></script>
 <script src="/md.js"></script>
+<script src="/hl.js"></script>
 <script>
 (function () {
   var el = document.getElementById('post');
+  var tocEl = document.getElementById('toc');
   var slug = new URLSearchParams(location.search).get('p') || '';
 
   function fail(msg) {
@@ -70,12 +106,19 @@
 
   if (!/^[a-z0-9-]+$/.test(slug)) { fail('That post link looks wrong.'); return; }
 
+  var ICON_BACK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
+
   fetch('/posts/index.json')
     .then(function (r) { return r.json(); })
     .then(function (posts) {
+      var live = posts.filter(function (p) { return !p.draft; })
+                      .sort(function (a, b) { return b.date.localeCompare(a.date); });
       // Only ever fetch a slug the index knows about.
-      var meta = posts.filter(function (p) { return p.slug === slug; })[0];
-      if (!meta) { fail('No post with that name.'); return null; }
+      var idx = live.findIndex(function (p) { return p.slug === slug; });
+      if (idx < 0) { fail('No post with that name.'); return null; }
+      var meta = live[idx];
+      var newer = live[idx - 1];
+      var older = live[idx + 1];
 
       document.title = meta.title + ' — Ishfaq Ahmad Bhat';
       var d = document.querySelector('meta[name="description"]');
@@ -88,6 +131,7 @@
         // The index owns the title; drop a duplicate leading H1 from the file.
         var body = md.replace(/^\s*#\s+.*\n+/, '');
         var out = window.renderMarkdown(body);
+
         el.innerHTML =
           '<header>' +
             '<div class="post-meta">' +
@@ -95,26 +139,135 @@
               (meta.tag ? '<span class="pill">' + window.esc(meta.tag) + '</span>' : '') +
               (meta.readingTime ? '<span>' + window.esc(meta.readingTime) + ' min read</span>' : '') +
             '</div>' +
-            '<h1>' + window.esc(meta.title) + '</h1>' +
+            '<h1 data-split>' + window.esc(meta.title) + '</h1>' +
             '<p class="lede" style="margin-bottom:0">' + window.esc(meta.summary) + '</p>' +
           '</header>' +
           '<div class="md">' + out.html + '</div>' +
           '<div class="post-foot">' +
-            '<a class="back-link" href="/blog.html">' +
-              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>' +
-              'All posts</a>' +
-            '<a class="btn btn-ghost" href="mailto:bhatishfaq966@gmail.com?subject=' +
-              encodeURIComponent('Re: ' + meta.title) + '">Reply by email</a>' +
-          '</div>';
+            '<a class="back-link" href="/blog.html">' + ICON_BACK + 'All posts</a>' +
+            '<div class="share-row">' +
+              '<button data-share="copy" title="Copy link" aria-label="Copy link">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>' +
+              '</button>' +
+              '<a data-share="li" target="_blank" rel="noopener" title="Share on LinkedIn" aria-label="Share on LinkedIn">' +
+                '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.2V21h-4v-6c0-1.6-.03-3.65-2.22-3.65-2.23 0-2.57 1.73-2.57 3.53V21h-4V9Z"/></svg>' +
+              '</a>' +
+              '<a data-share="x" target="_blank" rel="noopener" title="Share on X" aria-label="Share on X">' +
+                '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2L4.6 21H1.4l7.5-8.6L1 3h6.6l4.6 5.7L17.5 3Zm-1.1 16h1.8L7.7 4.8H5.8L16.4 19Z"/></svg>' +
+              '</a>' +
+              '<a href="mailto:bhatishfaq966@gmail.com?subject=' + encodeURIComponent('Re: ' + meta.title) + '" title="Reply by email" aria-label="Reply by email">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>' +
+              '</a>' +
+            '</div>' +
+          '</div>' +
+          '<nav class="post-nav">' +
+            (older ? '<a href="/post.html?p=' + encodeURIComponent(older.slug) + '"><small>← Older</small><b>' + window.esc(older.title) + '</b></a>' : '') +
+            (newer ? '<a class="next" href="/post.html?p=' + encodeURIComponent(newer.slug) + '"><small>Newer →</small><b>' + window.esc(newer.title) + '</b></a>' : '') +
+          '</nav>';
 
-        // Deep-link to a heading if one was requested.
-        if (location.hash) {
-          var target = document.getElementById(location.hash.slice(1));
-          if (target) target.scrollIntoView();
-        }
+        enhance(out.headings, meta);
       });
     })
     .catch(function () { fail('That post could not be loaded.'); });
+
+  /* ---- everything that only makes sense once the body exists ---- */
+  function enhance(headings, meta) {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // headline stagger, same treatment as the home page
+    var h1 = el.querySelector('[data-split]');
+    if (h1) requestAnimationFrame(function () { h1.classList.add('split-in'); });
+
+    // syntax highlighting
+    if (window.highlightCode) window.highlightCode(el);
+
+    // copy button on every code block
+    Array.prototype.slice.call(el.querySelectorAll('pre')).forEach(function (pre) {
+      var wrap = document.createElement('div');
+      wrap.className = 'code-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+      var btn = document.createElement('button');
+      btn.className = 'code-copy';
+      btn.type = 'button';
+      btn.textContent = 'copy';
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(pre.textContent).then(function () {
+          btn.textContent = 'copied';
+          if (window.toast) window.toast('Code copied');
+          setTimeout(function () { btn.textContent = 'copy'; }, 1600);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+
+    // share actions
+    var url = location.origin + location.pathname + location.search;
+    var copyBtn = el.querySelector('[data-share="copy"]');
+    if (copyBtn) copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(url).then(function () {
+        if (window.toast) window.toast('Link copied');
+      });
+    });
+    var li = el.querySelector('[data-share="li"]');
+    if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+    var x = el.querySelector('[data-share="x"]');
+    if (x) x.href = 'https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(meta.title) + '&url=' + encodeURIComponent(url);
+
+    // table of contents — only worth showing when there's something to jump to
+    var tops = headings.filter(function (h) { return h.level === 2 || h.level === 3; });
+    if (tops.length >= 3) {
+      tocEl.hidden = false;
+      tocEl.innerHTML = '<p>On this page</p>' + tops.map(function (h) {
+        return '<a href="#' + window.esc(h.id) + '"' + (h.level === 3 ? ' class="lvl3"' : '') + '>' +
+          window.esc(h.text) + '</a>';
+      }).join('');
+
+      var links = Array.prototype.slice.call(tocEl.querySelectorAll('a'));
+      var targets = tops.map(function (h) { return document.getElementById(h.id); });
+      var spy = function () {
+        var best = 0;
+        targets.forEach(function (t, i) {
+          if (t && t.getBoundingClientRect().top < 140) best = i;
+        });
+        links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+      };
+      spy();
+      window.addEventListener('scroll', spy, { passive: true });
+
+      tocEl.addEventListener('click', function (e) {
+        var a = e.target.closest('a');
+        if (!a) return;
+        e.preventDefault();
+        var t = document.getElementById(a.getAttribute('href').slice(1));
+        if (t) {
+          t.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+          history.replaceState(null, '', a.getAttribute('href'));
+        }
+      });
+    }
+
+    // reading progress across the article body only
+    var bar = document.getElementById('readbar');
+    if (bar) {
+      var tick = function () {
+        var r = el.getBoundingClientRect();
+        var total = r.height - window.innerHeight;
+        var p = total > 0 ? (-r.top) / total : (r.top <= 0 ? 1 : 0);
+        bar.style.transform = 'scaleX(' + Math.max(0, Math.min(1, p)) + ')';
+      };
+      tick();
+      window.addEventListener('scroll', tick, { passive: true });
+      window.addEventListener('resize', tick, { passive: true });
+    }
+
+    // deep link to a heading, now that the headings exist
+    if (location.hash) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) target.scrollIntoView();
+    }
+  }
 })();
 </script>
 </body>

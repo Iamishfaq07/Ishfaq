@@ -52,6 +52,7 @@ writeFileSync(join(root, 'feed.xml'), feed);
 /* ---- sitemap.xml ---- */
 const pages = [
   { loc: `${SITE}/`, pri: '1.0' },
+  { loc: `${SITE}/resume.html`, pri: '0.8' },
   { loc: `${SITE}/blog.html`, pri: '0.8' },
   ...posts.map((p) => ({
     loc: `${SITE}/post.html?p=${encodeURIComponent(p.slug)}`,

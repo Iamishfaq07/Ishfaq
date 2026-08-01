@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé — Ishfaq Ahmad Bhat</title>
+<meta name="description" content="Résumé of Ishfaq Ahmad Bhat — Sr. Application Security Engineer. 5+ years in AppSec, vulnerability management and offensive security.">
+<link rel="canonical" href="https://ishfaqbhat.vercel.app/resume.html">
+<meta name="theme-color" content="#080a0f">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Résumé — Ishfaq Ahmad Bhat">
+<meta property="og:description" content="Sr. Application Security Engineer — 5+ years in AppSec, vulnerability management and offensive security.">
+<meta property="og:image" content="https://ishfaqbhat.vercel.app/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
+<style>
+  .cv { max-width: 860px; padding: 34px 0 80px; }
+  /* the global section rhythm is too airy for a CV */
+  .cv section { padding: 0; }
+  .cv-head { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line-soft); }
+  .cv-head h1 { font-size: clamp(1.9rem, 4.4vw, 2.5rem); margin: 0 0 6px; }
+  .cv-head .role { color: var(--amber); font-weight: 620; font-size: 1.05rem; }
+  .cv-contact { font-size: .9rem; color: var(--muted); display: grid; gap: 3px; text-align: right; }
+  @media (max-width: 620px) { .cv-contact { text-align: left; } }
+  .cv h2 {
+    font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--amber); margin: 34px 0 14px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .cv-role { margin-bottom: 22px; }
+  .cv-role .top { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+  .cv-role h3 { margin: 0; font-size: 1.04rem; }
+  .cv-role .where { color: var(--teal); font-weight: 560; font-size: .94rem; }
+  .cv-role .when { color: var(--muted-2); font-size: .84rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cv-role ul { margin: 9px 0 0; padding-left: 19px; color: var(--muted); font-size: .93rem; }
+  .cv-role li { margin-bottom: 5px; }
+  .cv-role strong { color: var(--text); font-weight: 600; }
+  .cv-grid { display: grid; grid-template-columns: 150px 1fr; gap: 8px 18px; font-size: .92rem; }
+  @media (max-width: 620px) { .cv-grid { grid-template-columns: 1fr; gap: 2px 0; } .cv-grid dt { margin-top: 12px; } }
+  .cv-grid dt { color: var(--text); font-weight: 620; }
+  .cv-grid dd { margin: 0; color: var(--muted); }
+  .cv-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 26px 0 0; }
+
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --text: #111; --muted: #333; --muted-2: #555;
+            --amber: #8a5a10; --teal: #16645c; --line-soft: #ccc; --border: #ddd; }
+    body { font-size: 11pt; }
+    .cv { padding: 0; max-width: none; }
+    .cv h2 { margin-top: 20px; }
+    .cv-role { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div id="scrollbar" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark">IB</span> Ishfaq Bhat</a>
+    <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="/#about" data-pal="About" data-pal-kind="Go to">About</a>
+      <a href="/#skills" data-pal="Skills" data-pal-kind="Go to">Skills</a>
+      <a href="/#projects" data-pal="Projects" data-pal-kind="Go to">Projects</a>
+      <a href="/#experience" data-pal="Experience" data-pal-kind="Go to">Experience</a>
+      <a href="/resume.html" class="active">Résumé</a>
+      <a href="/blog.html" data-pal="All writing" data-pal-kind="Open">Writing</a>
+      <a href="/#contact" data-pal="Contact" data-pal-kind="Go to">Contact</a>
+      <button class="pal-btn nav-pal" data-pal-open aria-label="Open command palette">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd">⌘K</span>
+      </button>
+      <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="wrap cv">
+  <header class="cv-head">
+    <div>
+      <h1 data-split>Ishfaq Ahmad Bhat</h1>
+      <p class="role" style="margin:0">Sr. Application Security Engineer</p>
+    </div>
+    <div class="cv-contact">
+      <span><a href="mailto:bhatishfaq966@gmail.com">bhatishfaq966@gmail.com</a></span>
+      <span><a href="tel:+917006286454">+91 7006286454</a></span>
+      <span><a href="https://www.linkedin.com/in/iamishfaq07/" target="_blank" rel="noopener">linkedin.com/in/iamishfaq07</a></span>
+      <span><a href="https://github.com/iamishfaq07" target="_blank" rel="noopener">github.com/iamishfaq07</a></span>
+      <span>Srinagar, India</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p style="color:var(--muted);margin:0">
+      Application security engineer with <strong style="color:var(--text)">5+ years</strong> across AppSec,
+      vulnerability management and offensive research. Built an enterprise AppSec program from inception to
+      100% coverage across 20+ engineering teams. Manual web and API pentesting, CVE triage at volume,
+      SAST/DAST/SCA tooling, cloud posture management, and AI/LLM security testing against the OWASP LLM
+      Top 10. Creator of KashSec Academy, a free 26-path cybersecurity curriculum.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <article class="cv-role">
+      <div class="top">
+        <h3>Sr. Application Security Engineer <span class="where">· R1RCM</span></h3>
+        <span class="when">Jul 2024 — Present</span>
+      </div>
+      <ul>
+        <li>Built and scaled the enterprise AppSec program from inception with SAST/DAST/SCA tooling, OWASP governance and automated workflows — <strong>100% security coverage across 20+ engineering teams</strong>.</li>
+        <li>Performed manual web and API security testing to validate scanner findings, eliminate false positives and uncover business-logic flaws; integrated Veracode, Burp Suite Pro and GHAS into CI/CD.</li>
+        <li>Analysed CVE-based reports and classified severity using CVSS; resolved <strong>675+ critical Dependabot vulnerabilities in six months</strong>.</li>
+        <li>Ran security testing on AI-powered features — prompt injection, data leakage, instruction override and model misuse per the OWASP LLM Top 10.</li>
+        <li>Designed real-time Power BI security dashboards cutting <strong>MTTR by 50%</strong>; worked with 200+ developers to cut post-release vulnerabilities by 40%.</li>
+        <li>Uncovered <strong>150+ critical logic flaws (IDOR)</strong> and ensured SOC 2 audit compliance through in-house pentesting.</li>
+        <li><strong>Employee of the Year 2025.</strong></li>
+      </ul>
+    </article>
+
+    <article class="cv-role">
+      <div class="top">
+        <h3>Subject Matter Expert — Security <span class="where">· SSGServ | Synology</span></h3>
+        <span class="when">Mar 2022 — Jul 2024</span>
+      </div>
+      <ul>
+        <li>Conducted <strong>50+ pentests uncovering 220+ critical vulnerabilities</strong> (SSRF, RCE, IDOR) across DAST and manual engagements.</li>
+        <li>Applied SAST, DAST and SCA tooling (Fortify, Veracode, Burp Suite Pro, Black Duck) across the web application SDLC.</li>
+        <li>Managed cloud posture for 5+ Azure tenants using Prisma Cloud, Azure Sentinel, Splunk, Tanium and Qualys — <strong>95% CIS benchmark compliance</strong>.</li>
+        <li>Delivered end-to-end security programs for 15+ high-profile clients, driving <strong>$500K+ annual client revenue</strong>.</li>
+        <li>Contributed to security research and tool development across application, cloud and IoT security.</li>
+        <li><strong>Employee of the Year 2023; Employee of the Month ×3.</strong></li>
+      </ul>
+    </article>
+
+    <article class="cv-role">
+      <div class="top">
+        <h3>Security Engineer <span class="where">· BQE Software</span></h3>
+        <span class="when">Jan 2021 — Mar 2022</span>
+      </div>
+      <ul>
+        <li>Web application security assessments using SAST, DAST and manual pentesting; monthly infrastructure vulnerability audits and remediation tracking.</li>
+        <li>Implemented network security with Cisco ASA, Cisco Firepower and Sophos SSL; configured site-to-site VPN and Layer 2 LAN controls.</li>
+        <li>Built core automation for vulnerability assessment, log parsing, backup and monitoring in Python and PowerShell.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="cv-grid">
+      <dt>SAST / SCA</dt><dd>CodeQL / GHAS, Fortify, Veracode, SonarQube, Black Duck, Coverity, Dependabot, Checkov, Trivy</dd>
+      <dt>DAST / Pentest</dt><dd>Burp Suite Pro, OWASP ZAP, WebInspect, Nuclei, Metasploit, SQLMap, Cobalt Strike, Hydra</dd>
+      <dt>AI / LLM security</dt><dd>OWASP LLM Top 10, prompt injection, data leakage, instruction override, model misuse</dd>
+      <dt>Cloud &amp; API</dt><dd>Wiz, Prisma Cloud, Azure Sentinel, Salt Security, Akamai WAF, OWASP API Top 10</dd>
+      <dt>Scripting</dt><dd>Python, Bash, PowerShell, JavaScript, C#, GitHub Actions, CI/CD</dd>
+      <dt>Frameworks</dt><dd>CVSS, OWASP Top 10, SOC 2, CIS Benchmarks, OAuth / SAML / JWT, threat modeling</dd>
+      <dt>Network &amp; infra</dt><dd>Cisco ASA, Firepower, Sophos XG210, Cyberoam, VPN, IDS/IPS</dd>
+      <dt>Monitoring</dt><dd>Splunk, Tanium, Qualys, Nessus, Power BI, endpoint detection</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <dl class="cv-grid">
+      <dt>CEH Master</dt><dd>Certified Ethical Hacker (Master) · EC-Council</dd>
+      <dt>OSCP</dt><dd>Offensive Security Certified Professional · OffSec — in progress</dd>
+      <dt>eJPT</dt><dd>Junior Penetration Tester · INE / eLearnSecurity</dd>
+      <dt>Google</dt><dd>Google Cybersecurity Professional Certificate</dd>
+      <dt>Palantir</dt><dd>Foundry &amp; AIP Builder Foundations</dd>
+      <dt>Fortinet · ICSI</dt><dd>NSE 2 Network Security Associate · Certified Network Security Specialist</dd>
+      <dt>Also</dt><dd>IBM Cybersecurity Tools &amp; Cyber Attacks, Microsoft Technical Associate, Burp Suite Practitioner, CCNP Security training, PentesterLab Essential badge</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <dl class="cv-grid">
+      <dt>KashSec Academy</dt><dd>Free 26-path, 485-lesson cybersecurity course with 42 interactive labs, quizzes and mock exams — offline-capable PWA. <a href="https://kashsec.vercel.app/" target="_blank" rel="noopener">kashsec.vercel.app</a></dd>
+      <dt>KashRecon</dt><dd>Custom reconnaissance tooling for bug bounty work.</dd>
+      <dt>Nuclei Template MCP</dt><dd>MCP server for authoring and looking up Nuclei templates.</dd>
+      <dt>OSCP AutoPwn</dt><dd>Enumeration and initial-access automation built during OSCP preparation.</dd>
+    </dl>
+  </section>
+
+  <div class="cv-actions">
+    <button class="btn btn-primary" data-magnet id="printBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V3h10v6M7 19H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 15h10v6H7v-6Z"/></svg>
+      Print / save as PDF
+    </button>
+    <a class="btn btn-ghost" data-magnet href="mailto:bhatishfaq966@gmail.com">Get in touch</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="year">2026</span> Ishfaq Ahmad Bhat · Built from scratch, no trackers.</span>
+    <span><a href="/feed.xml">RSS</a> · <a href="https://kashsec.vercel.app/" target="_blank" rel="noopener">KashSec Academy</a></span>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<div id="palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+  <div class="pal-box">
+    <div class="pal-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="palInput" type="text" placeholder="Jump to a section or a post…" autocomplete="off" spellcheck="false">
+      <span class="kbd">esc</span>
+    </div>
+    <ul id="palList"></ul>
+    <div class="pal-foot">
+      <span><span class="kbd">↑</span> <span class="kbd">↓</span> navigate</span>
+      <span><span class="kbd">↵</span> open</span>
+      <span><span class="kbd">/</span> search</span>
+    </div>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script src="/main.js"></script>
+<script src="/anim.js"></script>
+<script>
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+</script>
+</body>
+</html>

@@ -19,9 +19,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
-
 </head>
 <body>
+<div id="preload"><span class="brand-mark">IB</span><span class="bar"><i></i></span></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div id="scrollbar" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav">
@@ -31,12 +34,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="/#about">About</a>
-      <a href="/#skills">Skills</a>
-      <a href="/#projects">Projects</a>
-      <a href="/#experience">Experience</a>
+      <a href="/#about" data-pal="About" data-pal-kind="Go to">About</a>
+      <a href="/#skills" data-pal="Skills" data-pal-kind="Go to">Skills</a>
+      <a href="/#projects" data-pal="Projects" data-pal-kind="Go to">Projects</a>
+      <a href="/#experience" data-pal="Experience" data-pal-kind="Go to">Experience</a>
+      <a href="/#certs" data-pal="Certifications" data-pal-kind="Go to">Certs</a>
+      <a href="/resume.html" data-pal="Résumé" data-pal-kind="Open">Résumé</a>
       <a href="/blog.html" class="active">Writing</a>
-      <a href="/#contact">Contact</a>
+      <a href="/#contact" data-pal="Contact" data-pal-kind="Go to">Contact</a>
+      <button class="pal-btn nav-pal" data-pal-open aria-label="Open command palette">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd">⌘K</span>
+      </button>
       <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
     </div>
   </div>
@@ -48,12 +57,17 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
       Back home
     </a>
-    <h1 style="margin:16px 0 10px">Writing</h1>
+    <h1 style="margin:16px 0 10px" data-split>Writing</h1>
     <p class="sec-sub">Writeups, research notes, and the occasional argument about how security should be taught. <a href="/feed.xml">RSS</a>.</p>
   </header>
 
   <div class="wrap" style="padding-bottom:80px">
+    <div class="search-box" style="margin-top:26px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="postSearch" type="search" placeholder="Search posts…" autocomplete="off" spellcheck="false" aria-label="Search posts">
+    </div>
     <div class="filters" id="filters"></div>
+    <p id="count" class="sec-sub" style="margin:-8px 0 18px;font-size:.86rem"></p>
     <div class="post-list" id="posts"><p class="loading">Loading posts…</p></div>
   </div>
 </main>
@@ -65,19 +79,69 @@
   </div>
 </footer>
 
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<div id="palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+  <div class="pal-box">
+    <div class="pal-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="palInput" type="text" placeholder="Jump to a section or a post…" autocomplete="off" spellcheck="false">
+      <span class="kbd">esc</span>
+    </div>
+    <ul id="palList"></ul>
+    <div class="pal-foot">
+      <span><span class="kbd">↑</span> <span class="kbd">↓</span> navigate</span>
+      <span><span class="kbd">↵</span> open</span>
+      <span><span class="kbd">/</span> search</span>
+    </div>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
 <script src="/main.js"></script>
+<script src="/anim.js"></script>
 <script>
 (function () {
   var listEl = document.getElementById('posts');
   var filtersEl = document.getElementById('filters');
+  var countEl = document.getElementById('count');
+  var searchEl = document.getElementById('postSearch');
   var all = [];
   var active = 'All';
 
+  function matches(p, q) {
+    if (!q) return true;
+    return (p.title + ' ' + p.summary + ' ' + (p.tag || '')).toLowerCase().indexOf(q) > -1;
+  }
+
   function draw() {
-    var shown = active === 'All' ? all : all.filter(function (p) { return p.tag === active; });
+    var q = searchEl.value.trim().toLowerCase();
+    var shown = all.filter(function (p) {
+      return (active === 'All' || p.tag === active) && matches(p, q);
+    });
+
     listEl.innerHTML = shown.length
       ? shown.map(window.postCardHTML).join('')
-      : '<p class="empty">Nothing filed under “' + window.esc(active) + '” yet.</p>';
+      : '<p class="empty">Nothing matches that yet.</p>';
+
+    countEl.textContent = shown.length
+      ? shown.length + (shown.length === 1 ? ' post' : ' posts')
+      : '';
+
+    // Stagger the cards in rather than snapping the whole list into place.
+    Array.prototype.slice.call(listEl.querySelectorAll('.post-item')).forEach(function (el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(10px)';
+      setTimeout(function () {
+        el.style.transition = 'opacity .38s ease, transform .38s cubic-bezier(.22,.61,.36,1)';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }, 40 + i * 55);
+    });
+
     filtersEl.querySelectorAll('.chip').forEach(function (c) {
       c.setAttribute('aria-pressed', String(c.dataset.tag === active));
     });
@@ -101,6 +165,7 @@
         active = chip.dataset.tag;
         draw();
       });
+      searchEl.addEventListener('input', draw);
       draw();
     })
     .catch(function () {

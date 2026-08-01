@@ -33,6 +33,10 @@
 </script>
 </head>
 <body>
+<div id="preload"><span class="brand-mark">IB</span><span class="bar"><i></i></span></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div id="scrollbar" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav">
@@ -42,13 +46,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#certs">Certs</a>
-      <a href="/blog.html">Writing</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-pal="About" data-pal-kind="Go to">About</a>
+      <a href="#skills" data-pal="Skills" data-pal-kind="Go to">Skills</a>
+      <a href="#projects" data-pal="Projects" data-pal-kind="Go to">Projects</a>
+      <a href="#experience" data-pal="Experience" data-pal-kind="Go to">Experience</a>
+      <a href="#certs" data-pal="Certifications" data-pal-kind="Go to">Certs</a>
+      <a href="/resume.html" data-pal="Résumé" data-pal-kind="Open">Résumé</a>
+      <a href="/blog.html" data-pal="All writing" data-pal-kind="Open">Writing</a>
+      <a href="#contact" data-pal="Contact" data-pal-kind="Go to">Contact</a>
+      <button class="pal-btn nav-pal" data-pal-open aria-label="Open command palette">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd">⌘K</span>
+      </button>
       <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
     </div>
   </div>
@@ -59,7 +68,10 @@
 <header class="hero">
   <div class="wrap hero-in">
     <span class="eyebrow"><span class="dot"></span> Open to opportunities</span>
-    <h1>Breaking software,<br><span class="grad">then teaching the fix.</span></h1>
+    <p class="term" data-term='["whoami --verbose","cat /etc/appsec/program.conf","nuclei -t kashrecon/ -severity critical","llm-fuzz --owasp-llm-top10 ./target"]'>
+      <span class="prompt">root@appsec:~$</span><span class="term-out"></span><span class="cursor" aria-hidden="true"></span>
+    </p>
+    <h1 data-split>Breaking software,<br><span class="grad">then teaching the fix.</span></h1>
     <p class="lede">
       I'm <strong>Ishfaq Ahmad Bhat</strong> — Sr. Application Security Engineer at <strong>R1RCM</strong>,
       security researcher and educator. Five years of AppSec: manual web and API testing, CVE triage at
@@ -67,34 +79,47 @@
       the hard way ends up in <strong>KashSec Academy</strong>, free.
     </p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#experience">
+      <a class="btn btn-primary" data-magnet href="#experience">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Z"/></svg>
         View experience
       </a>
-      <a class="btn btn-ghost" href="/blog.html">
+      <a class="btn btn-ghost" data-magnet href="/blog.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11a3 3 0 0 1 3 3v11M4 5v11a3 3 0 0 0 3 3h11M8 9h6M8 13h6"/></svg>
         Read the writeups
       </a>
-      <a class="btn btn-ghost" href="mailto:bhatishfaq966@gmail.com">
+      <a class="btn btn-ghost" data-magnet href="/resume.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+        R&eacute;sum&eacute;
+      </a>
+      <a class="btn btn-ghost" data-magnet href="mailto:bhatishfaq966@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         Get in touch
       </a>
     </div>
 
     <div class="stat-row">
-      <div class="stat"><b>5+</b><span>years in AppSec</span></div>
-      <div class="stat"><b>675+</b><span>CVE vulns resolved</span></div>
-      <div class="stat"><b>150+</b><span>critical logic flaws</span></div>
-      <div class="stat"><b>20+</b><span>engineering teams covered</span></div>
-      <div class="stat"><b>50%</b><span>MTTR reduction</span></div>
+      <div class="stat"><b data-count="5+">5+</b><span>years in AppSec</span></div>
+      <div class="stat"><b data-count="675+">675+</b><span>CVE vulns resolved</span></div>
+      <div class="stat"><b data-count="150+">150+</b><span>critical logic flaws</span></div>
+      <div class="stat"><b data-count="20+">20+</b><span>engineering teams covered</span></div>
+      <div class="stat"><b data-count="50%">50%</b><span>MTTR reduction</span></div>
     </div>
   </div>
 </header>
 
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Burp Suite Pro</span><span>CodeQL / GHAS</span><span>OWASP LLM Top 10</span><span>Veracode</span>
+    <span>Nuclei</span><span>Prisma Cloud</span><span>Splunk</span><span>Metasploit</span>
+    <span>Azure Sentinel</span><span>Salt Security</span><span>Checkov</span><span>Kali Linux</span>
+    <span>Threat Modeling</span><span>SOC 2</span><span>Python</span>
+  </div>
+</div>
+
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="sec-kicker">About</p>
+      <p class="sec-kicker" data-n="01">About</p>
       <h2>Half offence, half classroom.</h2>
     </div>
     <div class="about-grid">
@@ -150,12 +175,12 @@
 <section id="skills">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="sec-kicker">Skills</p>
+      <p class="sec-kicker" data-n="02">Skills</p>
       <h2>What I work with</h2>
       <p class="sec-sub">Tools are replaceable; the reasoning behind them isn't. These are the ones I actually run.</p>
     </div>
     <div class="grid-3">
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
         <h3>SAST / SCA</h3>
         <ul>
@@ -164,7 +189,7 @@
           <li class="tag">Dependabot</li><li class="tag">Checkov</li><li class="tag">Trivy</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 2.5 15.2 0 18M12 3c-2.5 2.8-2.5 15.2 0 18"/></svg></div>
         <h3>DAST / Pentest</h3>
         <ul>
@@ -173,7 +198,7 @@
           <li class="tag">Cobalt Strike</li><li class="tag">Hydra</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 12h.01M15 12h.01M9.5 16h5"/></svg></div>
         <h3>AI / LLM security</h3>
         <ul>
@@ -182,7 +207,7 @@
           <li class="tag">Model misuse</li><li class="tag">AI pentesting</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-2 8 9-12h-7l2-8Z"/></svg></div>
         <h3>Recon &amp; exploitation</h3>
         <ul>
@@ -190,7 +215,7 @@
           <li class="tag">Kali Linux</li><li class="tag">Wireshark</li><li class="tag">KashRecon</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1 .6-8 6 6 0 0 1 11.3 2A3.5 3.5 0 0 1 18 18H7Z"/></svg></div>
         <h3>Cloud &amp; API</h3>
         <ul>
@@ -198,7 +223,7 @@
           <li class="tag">Salt Security</li><li class="tag">Akamai WAF</li><li class="tag">OWASP API Top 10</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg></div>
         <h3>Scripting &amp; DevSecOps</h3>
         <ul>
@@ -207,7 +232,7 @@
           <li class="tag">CI/CD</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
         <h3>Frameworks &amp; standards</h3>
         <ul>
@@ -215,7 +240,7 @@
           <li class="tag">CIS Benchmarks</li><li class="tag">OAuth / SAML / JWT</li><li class="tag">Threat modeling</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
         <h3>Network &amp; infra</h3>
         <ul>
@@ -223,7 +248,7 @@
           <li class="tag">Cyberoam</li><li class="tag">VPN</li><li class="tag">IDS / IPS</li>
         </ul>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></div>
         <h3>Monitoring &amp; SIEM</h3>
         <ul>
@@ -238,13 +263,13 @@
 <section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="sec-kicker">Projects</p>
+      <p class="sec-kicker" data-n="03">Projects</p>
       <h2>Things I've built</h2>
       <p class="sec-sub">Shipped, public, and open to anyone who wants to use them.</p>
     </div>
     <div class="grid-2">
 
-      <article class="card proj featured reveal">
+      <article class="card proj featured tilt reveal">
         <div class="proj-top">
           <h3>KashSec Academy</h3>
           <span class="badge">Live</span>
@@ -268,7 +293,7 @@
         </div>
       </article>
 
-      <article class="card proj reveal">
+      <article class="card proj tilt reveal">
         <div class="proj-top">
           <h3>KashRecon</h3>
           <span class="badge wip">Ongoing</span>
@@ -288,7 +313,7 @@
         </div>
       </article>
 
-      <article class="card proj reveal">
+      <article class="card proj tilt reveal">
         <div class="proj-top">
           <h3>Nuclei Template MCP</h3>
           <span class="badge">Live</span>
@@ -308,7 +333,7 @@
         </div>
       </article>
 
-      <article class="card proj reveal">
+      <article class="card proj tilt reveal">
         <div class="proj-top">
           <h3>OSCP AutoPwn Framework</h3>
           <span class="badge wip">Ongoing</span>
@@ -335,7 +360,7 @@
 <section id="experience">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="sec-kicker">Experience</p>
+      <p class="sec-kicker" data-n="04">Experience</p>
       <h2>The path so far</h2>
     </div>
     <ol class="timeline reveal">
@@ -405,31 +430,31 @@
 <section id="certs">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="sec-kicker">Certifications</p>
+      <p class="sec-kicker" data-n="05">Certifications</p>
       <h2>Paper trail</h2>
     </div>
     <div class="grid-3">
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <h3>CEH Master</h3>
         <p style="color:var(--muted);font-size:.92rem;margin:0">Certified Ethical Hacker (Master) · EC-Council</p>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <h3>OSCP <span class="pill" style="margin-left:6px">In progress</span></h3>
         <p style="color:var(--muted);font-size:.92rem;margin:0">Offensive Security Certified Professional · OffSec</p>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <h3>eJPT</h3>
         <p style="color:var(--muted);font-size:.92rem;margin:0">Junior Penetration Tester · INE / eLearnSecurity</p>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <h3>Google Cybersecurity</h3>
         <p style="color:var(--muted);font-size:.92rem;margin:0">Professional Certificate · Google</p>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <h3>Foundry &amp; AIP Builder</h3>
         <p style="color:var(--muted);font-size:.92rem;margin:0">AI certification · Palantir</p>
       </div>
-      <div class="card skill-card reveal">
+      <div class="card skill-card tilt reveal">
         <h3>NSE 2 · CNSS</h3>
         <p style="color:var(--muted);font-size:.92rem;margin:0">Network Security Associate · Fortinet — Certified Network Security Specialist · ICSI</p>
       </div>
@@ -444,7 +469,7 @@
 <section id="writing">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="sec-kicker">Writing</p>
+      <p class="sec-kicker" data-n="06">Writing</p>
       <h2>Latest posts</h2>
       <p class="sec-sub">Writeups, research notes and opinions on teaching security.</p>
     </div>
@@ -452,6 +477,37 @@
     <p style="margin-top:22px"><a class="btn btn-ghost" href="/blog.html">All posts
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a></p>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker" data-n="07">Awards &amp; interests</p>
+      <h2>Off the clock</h2>
+    </div>
+    <div class="grid-2" style="margin-bottom:26px">
+      <div class="award reveal">
+        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v6a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg></span>
+        <span><b>Employee of the Year</b><span>R1RCM · 2025</span></span>
+      </div>
+      <div class="award reveal">
+        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v6a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg></span>
+        <span><b>Employee of the Year</b><span>Synology · 2023</span></span>
+      </div>
+      <div class="award reveal">
+        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V7l-8-4Z"/></svg></span>
+        <span><b>Employee of the Month ×3</b><span>Synology</span></span>
+      </div>
+      <div class="award reveal">
+        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></span>
+        <span><b>$500K+ annual client revenue</b><span>Security programs for 15+ clients</span></span>
+      </div>
+    </div>
+    <ul class="chips reveal">
+      <li>Large language models</li><li>Bug bounty research</li><li>Local LLM inference</li>
+      <li>Gaming</li><li>Podcasts</li><li>Cars</li><li>Consumer tech</li><li>Cat dad — Zero</li>
+    </ul>
   </div>
 </section>
 
@@ -464,7 +520,7 @@
         people into this field. Fastest way to reach me is email.
       </p>
       <div class="social-row">
-        <a class="btn btn-primary" href="mailto:bhatishfaq966@gmail.com">
+        <a class="btn btn-primary" data-magnet href="mailto:bhatishfaq966@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           bhatishfaq966@gmail.com
         </a>
@@ -494,7 +550,30 @@
   </div>
 </footer>
 
+<button id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<div id="palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+  <div class="pal-box">
+    <div class="pal-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="palInput" type="text" placeholder="Jump to a section or a post…" autocomplete="off" spellcheck="false">
+      <span class="kbd">esc</span>
+    </div>
+    <ul id="palList"></ul>
+    <div class="pal-foot">
+      <span><span class="kbd">↑</span> <span class="kbd">↓</span> navigate</span>
+      <span><span class="kbd">↵</span> open</span>
+      <span><span class="kbd">/</span> search</span>
+    </div>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
 <script src="/main.js"></script>
+<script src="/anim.js"></script>
 <script>
   // Latest three posts on the home page.
   fetch('/posts/index.json')

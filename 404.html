@@ -12,20 +12,48 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
-
 </head>
 <body>
+<div class="aurora" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
 <main class="wrap" style="min-height:100vh;display:grid;place-content:center;text-align:center;gap:8px">
-  <p class="sec-kicker" style="margin:0">404</p>
-  <h1 style="margin:0 0 8px">Nothing here.</h1>
+  <p class="sec-kicker" style="margin:0;justify-content:center">
+    <span class="glitch" data-text="404">404</span>
+  </p>
+  <h1 style="margin:0 0 8px" data-split>Nothing here.</h1>
   <p class="lede" style="margin:0 auto 26px">
     The page you asked for doesn't exist — or it moved and I forgot to leave a note.
+    Try <span class="kbd">⌘K</span> to search.
   </p>
   <div class="cta-row" style="justify-content:center">
-    <a class="btn btn-primary" href="/">Back home</a>
-    <a class="btn btn-ghost" href="/blog.html">Read the writeups</a>
+    <a class="btn btn-primary" data-magnet href="/">Back home</a>
+    <a class="btn btn-ghost" data-magnet href="/blog.html">Read the writeups</a>
   </div>
 </main>
+
+<div id="palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+  <div class="pal-box">
+    <div class="pal-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="palInput" type="text" placeholder="Jump to a section or a post…" autocomplete="off" spellcheck="false">
+      <span class="kbd">esc</span>
+    </div>
+    <ul id="palList"></ul>
+    <div class="pal-foot">
+      <span><span class="kbd">↑</span> <span class="kbd">↓</span> navigate</span>
+      <span><span class="kbd">↵</span> open</span>
+    </div>
+  </div>
+</div>
+
+<a class="hidden" hidden href="/" data-pal="Home" data-pal-kind="Open">Home</a>
+<a class="hidden" hidden href="/blog.html" data-pal="All writing" data-pal-kind="Open">Writing</a>
+<a class="hidden" hidden href="/resume.html" data-pal="Résumé" data-pal-kind="Open">Résumé</a>
+
+<div id="toasts" aria-live="polite"></div>
+
 <script src="/main.js"></script>
+<script src="/anim.js"></script>
 </body>
 </html>
