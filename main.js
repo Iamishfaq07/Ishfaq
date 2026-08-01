@@ -9,7 +9,7 @@
   function applyTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', t === 'light' ? '#f7f8fa' : '#080a0f');
+    if (meta) meta.setAttribute('content', t === 'light' ? '#faf8f5' : '#080a0f');
     var btn = document.getElementById('themeBtn');
     if (btn) {
       btn.innerHTML = t === 'light' ? MOON : SUN;

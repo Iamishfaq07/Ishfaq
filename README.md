@@ -45,7 +45,9 @@ Open <http://localhost:8000>.
   buttons on every code block, syntax highlighting, share actions and prev/next links.
 - The blog index has live search on top of the tag filters.
 - Dark by default with a light theme remembered in `localStorage`; the theme is applied
-  inline in `<head>`, so there's no flash on load.
+  inline in `<head>`, so there's no flash on load. Light isn't an inversion of dark —
+  it's warm paper with soft shadow for depth, and its accents are darkened until every
+  pairing clears WCAG AA on the surface it actually sits on.
 
 Everything in `anim.js` is additive — if it never runs, the pages are still complete and
 readable — and every module checks `prefers-reduced-motion` before animating. Pointer
