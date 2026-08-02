@@ -51,39 +51,6 @@
   })();
 
   /* ---------------------------------------------------------
-     Hero: pointer spotlight + parallax on the glow layers.
-     --------------------------------------------------------- */
-  (function heroPointer() {
-    var hero = $('.hero');
-    if (!hero || reduced || !fine) return;
-    var raf = null, mx = 0.5, my = 0.4;
-    on(hero, 'pointermove', function (e) {
-      var r = hero.getBoundingClientRect();
-      mx = (e.clientX - r.left) / r.width;
-      my = (e.clientY - r.top) / r.height;
-      if (raf) return;
-      raf = requestAnimationFrame(function () {
-        raf = null;
-        hero.style.setProperty('--hx', (mx * 100).toFixed(2) + '%');
-        hero.style.setProperty('--hy', (my * 100).toFixed(2) + '%');
-      });
-    });
-  })();
-
-  (function heroParallax() {
-    var hero = $('.hero');
-    if (!hero || reduced) return;
-    var tick = function () {
-      var y = window.scrollY;
-      if (y > window.innerHeight * 1.2) return;
-      hero.style.setProperty('--py', (y * 0.22).toFixed(1) + 'px');
-      hero.style.setProperty('--pfade', String(Math.max(0, 1 - y / 620)));
-    };
-    tick();
-    on(window, 'scroll', tick);
-  })();
-
-  /* ---------------------------------------------------------
      Split the hero headline into words and stagger them in.
      --------------------------------------------------------- */
   (function splitHeadline() {
@@ -195,38 +162,6 @@
   })();
 
   /* ---------------------------------------------------------
-     Cards: cursor spotlight + a small 3D tilt.
-     --------------------------------------------------------- */
-  (function cards() {
-    if (!fine) return;
-    var els = $$('.card, .post-item, .stat');
-    els.forEach(function (el) {
-      var raf = null, tx = 0, ty = 0, mx = 50, my = 50;
-      on(el, 'pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        mx = ((e.clientX - r.left) / r.width) * 100;
-        my = ((e.clientY - r.top) / r.height) * 100;
-        tx = ((e.clientY - r.top) / r.height - 0.5) * -3.4;
-        ty = ((e.clientX - r.left) / r.width - 0.5) * 3.4;
-        if (raf) return;
-        raf = requestAnimationFrame(function () {
-          raf = null;
-          el.style.setProperty('--mx', mx.toFixed(2) + '%');
-          el.style.setProperty('--my', my.toFixed(2) + '%');
-          if (!reduced && el.classList.contains('tilt')) {
-            el.style.setProperty('--rx', tx.toFixed(2) + 'deg');
-            el.style.setProperty('--ry', ty.toFixed(2) + 'deg');
-          }
-        });
-      });
-      on(el, 'pointerleave', function () {
-        el.style.setProperty('--rx', '0deg');
-        el.style.setProperty('--ry', '0deg');
-      });
-    });
-  })();
-
-  /* ---------------------------------------------------------
      Magnetic buttons — a few pixels of pull, nothing more.
      --------------------------------------------------------- */
   (function magnetic() {
@@ -249,23 +184,6 @@
         el.style.setProperty('--ty', '0px');
       });
     });
-  })();
-
-  /* ---------------------------------------------------------
-     Timeline: draw the spine as it scrolls into view.
-     --------------------------------------------------------- */
-  (function timeline() {
-    var tl = $('.timeline');
-    if (!tl || reduced) return;
-    var tick = function () {
-      var r = tl.getBoundingClientRect();
-      var vh = window.innerHeight;
-      var p = (vh * 0.72 - r.top) / Math.max(1, r.height);
-      tl.style.setProperty('--draw', String(Math.max(0, Math.min(1, p))));
-    };
-    tick();
-    on(window, 'scroll', tick);
-    on(window, 'resize', tick);
   })();
 
   /* ---------------------------------------------------------

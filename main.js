@@ -9,7 +9,7 @@
   function applyTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', t === 'light' ? '#faf8f5' : '#080a0f');
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#12110e' : '#f2efe8');
     var btn = document.getElementById('themeBtn');
     if (btn) {
       btn.innerHTML = t === 'light' ? MOON : SUN;
@@ -123,10 +123,12 @@
       '<div class="post-meta">' +
         '<time datetime="' + esc(p.date) + '">' + esc(formatDate(p.date)) + '</time>' +
         (p.tag ? '<span class="pill">' + esc(p.tag) + '</span>' : '') +
-        (p.readingTime ? '<span>' + esc(p.readingTime) + ' min read</span>' : '') +
       '</div>' +
-      '<h3>' + esc(p.title) + '</h3>' +
-      '<p>' + esc(p.summary) + '</p>' +
+      '<div>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        '<p>' + esc(p.summary) + '</p>' +
+      '</div>' +
+      '<span class="read">' + (p.readingTime ? esc(p.readingTime) + ' min' : 'Read') + '</span>' +
     '</a>';
   }
 

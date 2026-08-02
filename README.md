@@ -5,6 +5,11 @@ R1RCM, security researcher, and creator of [KashSec Academy](https://kashsec.ver
 
 Static HTML, CSS and vanilla JS. No framework, no build step for the pages themselves, no trackers.
 
+**Design:** editorial rather than dashboard — warm paper (`#f2efe8`), ink (`#14130f`), a single
+cobalt accent, `Instrument Serif` for display and `Inter` for text, hairline rules instead of filled
+cards, square corners. Paper is the default; a dark "ink paper" theme is one toggle away and is
+remembered in `localStorage`.
+
 ## Run it locally
 
 ```bash
@@ -17,14 +22,14 @@ Open <http://localhost:8000>.
 
 ```
 .
-├── index.html          # hero, about, skills, projects, experience, certs, awards, contact
+├── index.html          # hero, about, skills, work, experience, certs, awards, writing, contact
 ├── resume.html         # printable résumé (print stylesheet included)
 ├── blog.html           # post index with search + tag filters
 ├── post.html           # single post — reads ?p=<slug>, renders the markdown
 ├── 404.html
 ├── styles.css          # the whole design system (dark + light) plus the motion layer
 ├── main.js             # theme toggle, nav, scroll reveal, shared post-card markup
-├── anim.js             # preloader, counters, tilt, magnetic buttons, command palette…
+├── anim.js             # preloader, counters, magnetic buttons, command palette…
 ├── md.js               # small Markdown renderer (escapes raw HTML by design)
 ├── hl.js               # tiny syntax highlighter for code blocks
 ├── posts/

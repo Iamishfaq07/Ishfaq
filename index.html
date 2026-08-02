@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
 <meta name="description" content="Sr. Application Security Engineer with 5+ years in AppSec, vulnerability management and offensive security. AI/LLM security testing, bug bounty, and creator of KashSec Academy.">
 <meta name="author" content="Ishfaq Ahmad Bhat">
 <link rel="canonical" href="https://ishfaqbhat.vercel.app/">
-<meta name="theme-color" content="#080a0f">
+<meta name="theme-color" content="#f2efe8">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ishfaq Ahmad Bhat — Sr. Application Security Engineer">
@@ -20,12 +20,12 @@
 <meta name="twitter:image" content="https://ishfaqbhat.vercel.app/assets/og.png">
 
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="Ishfaq Bhat — Writing" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Ishfaq Ahmad Bhat — Writing" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/styles.css">
-<script>(function(){var t="dark";try{t=localStorage.getItem("theme")||"dark";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
+<script>(function(){var t="light";try{t=localStorage.getItem("theme")||"light";}catch(e){}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
 
 
 <script type="application/ld+json">
@@ -33,29 +33,27 @@
 </script>
 </head>
 <body>
-<div id="preload"><span class="brand-mark">IB</span><span class="bar"><i></i></span></div>
-<div class="aurora" aria-hidden="true"></div>
+<div id="preload"><span class="mk">IAB</span><span class="bar"><i></i></span></div>
 <div class="grain" aria-hidden="true"></div>
 <div id="scrollbar" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="/"><span class="brand-mark">IB</span> Ishfaq Bhat</a>
+    <a class="brand" href="/">Ishfaq Ahmad Bhat <span class="brand-mark">IAB</span></a>
     <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#about" data-pal="About" data-pal-kind="Go to">About</a>
       <a href="#skills" data-pal="Skills" data-pal-kind="Go to">Skills</a>
-      <a href="#projects" data-pal="Projects" data-pal-kind="Go to">Projects</a>
+      <a href="#work" data-pal="Selected work" data-pal-kind="Go to">Work</a>
       <a href="#experience" data-pal="Experience" data-pal-kind="Go to">Experience</a>
-      <a href="#certs" data-pal="Certifications" data-pal-kind="Go to">Certs</a>
       <a href="/resume.html" data-pal="Résumé" data-pal-kind="Open">Résumé</a>
       <a href="/blog.html" data-pal="All writing" data-pal-kind="Open">Writing</a>
       <a href="#contact" data-pal="Contact" data-pal-kind="Go to">Contact</a>
       <button class="pal-btn nav-pal" data-pal-open aria-label="Open command palette">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <span class="kbd">⌘K</span>
       </button>
       <button class="icon-btn nav-theme" id="themeBtn" aria-label="Toggle theme"></button>
@@ -65,45 +63,39 @@
 
 <main id="main">
 
-<header class="hero">
-  <div class="wrap hero-in">
-    <span class="eyebrow"><span class="dot"></span> Open to opportunities</span>
-    <p class="term" data-term='["whoami --verbose","cat /etc/appsec/program.conf","nuclei -t kashrecon/ -severity critical","llm-fuzz --owasp-llm-top10 ./target"]'>
-      <span class="prompt">root@appsec:~$</span><span class="term-out"></span><span class="cursor" aria-hidden="true"></span>
-    </p>
-    <h1 data-split>Breaking software,<br><span class="grad">then teaching the fix.</span></h1>
-    <p class="lede">
-      I'm <strong>Ishfaq Ahmad Bhat</strong> — Sr. Application Security Engineer at <strong>R1RCM</strong>,
-      security researcher and educator. Five years of AppSec: manual web and API testing, CVE triage at
-      scale, AI/LLM security, and an enterprise AppSec program I built from nothing. Everything I learn
-      the hard way ends up in <strong>KashSec Academy</strong>, free.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-primary" data-magnet href="#experience">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Z"/></svg>
-        View experience
-      </a>
-      <a class="btn btn-ghost" data-magnet href="/blog.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11a3 3 0 0 1 3 3v11M4 5v11a3 3 0 0 0 3 3h11M8 9h6M8 13h6"/></svg>
-        Read the writeups
-      </a>
-      <a class="btn btn-ghost" data-magnet href="/resume.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
-        R&eacute;sum&eacute;
-      </a>
-      <a class="btn btn-ghost" data-magnet href="mailto:bhatishfaq966@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        Get in touch
-      </a>
-    </div>
+<!-- ===================== hero ===================== -->
+<header class="hero wrap">
+  <p class="kicker"><span class="dot"></span> Srinagar, India — available for work</p>
+  <p class="term" data-term='["whoami --verbose","cat /etc/appsec/program.conf","nuclei -t kashrecon/ -severity critical","llm-fuzz --owasp-llm-top10 ./target"]'>
+    <span class="prompt">root@appsec:~$</span><span class="term-out"></span><span class="cursor" aria-hidden="true"></span>
+  </p>
+  <h1 data-split>Ishfaq Ahmad Bhat — I break software, <span class="it">then teach the fix.</span></h1>
 
-    <div class="stat-row">
-      <div class="stat"><b data-count="5+">5+</b><span>years in AppSec</span></div>
-      <div class="stat"><b data-count="675+">675+</b><span>CVE vulns resolved</span></div>
-      <div class="stat"><b data-count="150+">150+</b><span>critical logic flaws</span></div>
-      <div class="stat"><b data-count="20+">20+</b><span>engineering teams covered</span></div>
-      <div class="stat"><b data-count="50%">50%</b><span>MTTR reduction</span></div>
+  <div class="hero-foot">
+    <p class="lede">
+      Sr. Application Security Engineer at <strong>R1RCM</strong>. Five years of AppSec: manual web and
+      API testing, CVE triage at scale, AI/LLM security, and an enterprise programme I built from
+      nothing. Everything I learn the hard way ends up in <strong>KashSec Academy</strong>, free.
+    </p>
+    <div class="hero-meta">
+      <div><span class="k">Role</span><span class="v">Sr. Application Security Engineer</span></div>
+      <div><span class="k">Focus</span><span class="v">AppSec · Offensive research · AI/LLM security</span></div>
+      <div><span class="k">Cert</span><span class="v">CEH Master · eJPT · OSCP in progress</span></div>
+      <div><span class="k">Since</span><span class="v">2021</span></div>
     </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" data-magnet href="#work">Selected work</a>
+    <a class="btn btn-ghost" data-magnet href="/resume.html">Résumé</a>
+    <a class="btn btn-ghost" data-magnet href="mailto:bhatishfaq966@gmail.com">Email me</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b data-count="5+">5+</b><span>Years in AppSec</span></div>
+    <div class="stat"><b data-count="675+">675+</b><span>CVEs resolved</span></div>
+    <div class="stat"><b data-count="150+">150+</b><span>Logic flaws found</span></div>
+    <div class="stat"><b data-count="20+">20+</b><span>Teams covered</span></div>
   </div>
 </header>
 
@@ -116,427 +108,335 @@
   </div>
 </div>
 
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="01">About</p>
-      <h2>Half offence, half classroom.</h2>
+<!-- ===================== about ===================== -->
+<section id="about" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">01</span>
+    <div>
+      <h2>Half offence,<br>half classroom.</h2>
     </div>
-    <div class="about-grid">
-      <div class="prose reveal">
-        <p>
-          Sr. Application Security Engineer with <strong>5+ years</strong> across application security,
-          vulnerability management and offensive research. Currently at <strong>R1RCM</strong>, where I built
-          and scaled the AppSec program from inception to <strong>100% security coverage across 20+
-          engineering teams</strong> — SAST/DAST/SCA tooling, OWASP governance, and the automation to keep
-          it running.
-        </p>
-        <p>
-          The work spans the full spectrum: manual web and API pentesting, CVE triage and remediation at
-          volume, SOC 2 readiness, and <strong>AI/LLM security testing</strong> against the OWASP LLM Top 10 —
-          prompt injection, data leakage, instruction override, model misuse.
-        </p>
-        <p>
-          Outside the day job I hunt bug bounties, build recon tooling (<strong>KashRecon</strong>), and write
-          <strong>KashSec Academy</strong> — a free 26-path cybersecurity course from "what is a computer" to
-          malware reverse engineering. Currently grinding toward <strong>OSCP</strong>.
-        </p>
-        <p>
-          When I'm not breaking things: LLMs and local inference on an RTX 3070 Ti, gaming, cars, and far
-          too much consumer tech research.
-        </p>
-      </div>
-      <ul class="facts card reveal">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Z"/></svg>
-          <span><b>Role</b>Sr. Application Security Engineer @ R1RCM</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11Z"/></svg>
-          <span><b>Based in</b>Srinagar, Kashmir · India</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v6h6"/></svg>
-          <span><b>Certifications</b>CEH Master, eJPT, Google Cybersecurity · OSCP in progress</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v6a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg>
-          <span><b>Recognition</b>Employee of the Year — R1RCM 2025, Synology 2023</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h13"/></svg>
-          <span><b>Also</b>Bug bounty, KashRecon, and writing KashSec Academy</span>
-        </li>
-      </ul>
+  </div>
+  <div class="about-grid">
+    <div class="prose reveal">
+      <p>
+        I work at the seam between breaking systems and explaining them — and I think the second half
+        is where most of security quietly fails.
+      </p>
+      <p>
+        At <strong>R1RCM</strong> I built and scaled the AppSec programme from inception to
+        <strong>100% security coverage across 20+ engineering teams</strong> — SAST/DAST/SCA tooling,
+        OWASP governance, and the automation to keep it running. The work spans manual web and API
+        pentesting, CVE triage at volume, SOC 2 readiness, and
+        <strong>AI/LLM security testing</strong> against the OWASP LLM Top 10.
+      </p>
+      <p>
+        Outside the day job I hunt bug bounties, build recon tooling (<strong>KashRecon</strong>), and
+        write <strong>KashSec Academy</strong> — a free 26-path cybersecurity course that starts at
+        "what is a computer" and ends at malware reverse engineering. Currently grinding toward
+        <strong>OSCP</strong>.
+      </p>
     </div>
+    <ul class="facts reveal">
+      <li><b>Currently</b><span>Sr. Application Security Engineer @ R1RCM</span></li>
+      <li><b>Based in</b><span>Srinagar, Kashmir · working remotely</span></li>
+      <li><b>Recognition</b><span>Employee of the Year — R1RCM 2025, Synology 2023</span></li>
+      <li><b>Side work</b><span>Bug bounty, KashRecon, KashSec Academy</span></li>
+      <li><b>Off the clock</b><span>LLMs, local inference, gaming, cars, one cat named Zero</span></li>
+    </ul>
   </div>
 </section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="02">Skills</p>
+<!-- ===================== skills ===================== -->
+<section id="skills" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">02</span>
+    <div>
       <h2>What I work with</h2>
-      <p class="sec-sub">Tools are replaceable; the reasoning behind them isn't. These are the ones I actually run.</p>
+      <p>Tools are replaceable; the reasoning behind them isn't. These are the ones I actually run.</p>
     </div>
-    <div class="grid-3">
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
-        <h3>SAST / SCA</h3>
-        <ul>
-          <li class="tag">CodeQL / GHAS</li><li class="tag">Fortify</li><li class="tag">Veracode</li>
-          <li class="tag">SonarQube</li><li class="tag">Black Duck</li><li class="tag">Coverity</li>
-          <li class="tag">Dependabot</li><li class="tag">Checkov</li><li class="tag">Trivy</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 2.5 15.2 0 18M12 3c-2.5 2.8-2.5 15.2 0 18"/></svg></div>
-        <h3>DAST / Pentest</h3>
-        <ul>
-          <li class="tag">Burp Suite Pro</li><li class="tag">OWASP ZAP</li><li class="tag">WebInspect</li>
-          <li class="tag">Nuclei</li><li class="tag">Metasploit</li><li class="tag">SQLMap</li>
-          <li class="tag">Cobalt Strike</li><li class="tag">Hydra</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 12h.01M15 12h.01M9.5 16h5"/></svg></div>
-        <h3>AI / LLM security</h3>
-        <ul>
-          <li class="tag">OWASP LLM Top 10</li><li class="tag">Prompt injection</li>
-          <li class="tag">Data leakage</li><li class="tag">Instruction override</li>
-          <li class="tag">Model misuse</li><li class="tag">AI pentesting</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-2 8 9-12h-7l2-8Z"/></svg></div>
-        <h3>Recon &amp; exploitation</h3>
-        <ul>
-          <li class="tag">Nmap</li><li class="tag">DirBuster</li><li class="tag">WPScan</li>
-          <li class="tag">Kali Linux</li><li class="tag">Wireshark</li><li class="tag">KashRecon</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1 .6-8 6 6 0 0 1 11.3 2A3.5 3.5 0 0 1 18 18H7Z"/></svg></div>
-        <h3>Cloud &amp; API</h3>
-        <ul>
-          <li class="tag">Wiz</li><li class="tag">Prisma Cloud</li><li class="tag">Azure Sentinel</li>
-          <li class="tag">Salt Security</li><li class="tag">Akamai WAF</li><li class="tag">OWASP API Top 10</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"/></svg></div>
-        <h3>Scripting &amp; DevSecOps</h3>
-        <ul>
-          <li class="tag">Python</li><li class="tag">Bash</li><li class="tag">PowerShell</li>
-          <li class="tag">JavaScript</li><li class="tag">C#</li><li class="tag">GitHub Actions</li>
-          <li class="tag">CI/CD</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-        <h3>Frameworks &amp; standards</h3>
-        <ul>
-          <li class="tag">CVSS</li><li class="tag">OWASP Top 10</li><li class="tag">SOC 2</li>
-          <li class="tag">CIS Benchmarks</li><li class="tag">OAuth / SAML / JWT</li><li class="tag">Threat modeling</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
-        <h3>Network &amp; infra</h3>
-        <ul>
-          <li class="tag">Cisco ASA</li><li class="tag">Firepower</li><li class="tag">Sophos XG210</li>
-          <li class="tag">Cyberoam</li><li class="tag">VPN</li><li class="tag">IDS / IPS</li>
-        </ul>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></div>
-        <h3>Monitoring &amp; SIEM</h3>
-        <ul>
-          <li class="tag">Splunk</li><li class="tag">Tanium</li><li class="tag">Qualys</li>
-          <li class="tag">Nessus</li><li class="tag">Power BI</li><li class="tag">EDR</li>
-        </ul>
-      </div>
+  </div>
+  <div class="skills">
+    <div class="skill-row reveal">
+      <h3>SAST &amp; SCA</h3>
+      <ul><li>CodeQL / GHAS</li><li>Fortify</li><li>Veracode</li><li>SonarQube</li><li>Black Duck</li><li>Coverity</li><li>Dependabot</li><li>Checkov</li><li>Trivy</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>DAST &amp; pentest</h3>
+      <ul><li>Burp Suite Pro</li><li>OWASP ZAP</li><li>WebInspect</li><li>Nuclei</li><li>Metasploit</li><li>SQLMap</li><li>Cobalt Strike</li><li>Hydra</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>AI &amp; LLM security</h3>
+      <ul><li>OWASP LLM Top 10</li><li>Prompt injection</li><li>Data leakage</li><li>Instruction override</li><li>Model misuse</li><li>AI pentesting</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>Recon &amp; exploitation</h3>
+      <ul><li>Nmap</li><li>DirBuster</li><li>WPScan</li><li>Kali Linux</li><li>Wireshark</li><li>KashRecon</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>Cloud &amp; API</h3>
+      <ul><li>Wiz</li><li>Prisma Cloud</li><li>Azure Sentinel</li><li>Salt Security</li><li>Akamai WAF</li><li>OWASP API Top 10</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>Scripting &amp; DevSecOps</h3>
+      <ul><li>Python</li><li>Bash</li><li>PowerShell</li><li>JavaScript</li><li>C#</li><li>GitHub Actions</li><li>CI/CD</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>Frameworks</h3>
+      <ul><li>CVSS</li><li>OWASP Top 10</li><li>SOC 2</li><li>CIS Benchmarks</li><li>OAuth / SAML / JWT</li><li>Threat modeling</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>Network &amp; infra</h3>
+      <ul><li>Cisco ASA</li><li>Firepower</li><li>Sophos XG210</li><li>Cyberoam</li><li>VPN</li><li>IDS / IPS</li></ul>
+    </div>
+    <div class="skill-row reveal">
+      <h3>Monitoring &amp; SIEM</h3>
+      <ul><li>Splunk</li><li>Tanium</li><li>Qualys</li><li>Nessus</li><li>Power BI</li><li>EDR</li></ul>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="03">Projects</p>
-      <h2>Things I've built</h2>
-      <p class="sec-sub">Shipped, public, and open to anyone who wants to use them.</p>
+<!-- ===================== work ===================== -->
+<section id="work" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">03</span>
+    <div>
+      <h2>Selected work</h2>
+      <p>Shipped, public, and open to anyone who wants to use it.</p>
     </div>
-    <div class="grid-2">
-
-      <article class="card proj featured tilt reveal">
-        <div class="proj-top">
-          <h3>KashSec Academy</h3>
-          <span class="badge">Live</span>
-        </div>
+  </div>
+  <div class="projects">
+    <article class="proj reveal">
+      <span class="idx">01</span>
+      <div>
+        <h3><a href="https://kashsec.vercel.app/" target="_blank" rel="noopener">KashSec Academy</a></h3>
         <p>
           A complete cybersecurity course, free forever. 26 learning paths and 485 sub-lessons from
           "what is a computer" through malware reverse engineering, cloud, mobile, AI red teaming and
           OT/ICS — plus 42 interactive labs, 104 typed-answer practice tasks, 32 browser-based security
-          tools, 21 quizzes, timed mock exams and a downloadable certificate. Full PWA: installs and
-          works entirely offline.
+          tools, 21 quizzes and timed mock exams. A full PWA: it installs and works entirely offline.
         </p>
-        <ul class="tags">
-          <li class="tag">Vanilla JS</li><li class="tag">PWA / offline</li>
-          <li class="tag">Markdown pipeline</li><li class="tag">Supabase sync</li><li class="tag">Vercel</li>
-        </ul>
-        <div class="proj-links">
-          <a href="https://kashsec.vercel.app/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>
-            Live site
-          </a>
-        </div>
-      </article>
+        <ul class="tags"><li>Vanilla JS</li><li>PWA</li><li>Markdown pipeline</li><li>Supabase</li><li>Vercel</li></ul>
+      </div>
+      <div class="aside">
+        <span class="status">Live</span>
+        <a class="go" href="https://kashsec.vercel.app/" target="_blank" rel="noopener">
+          Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </article>
 
-      <article class="card proj tilt reveal">
-        <div class="proj-top">
-          <h3>KashRecon</h3>
-          <span class="badge wip">Ongoing</span>
-        </div>
+    <article class="proj reveal">
+      <span class="idx">02</span>
+      <div>
+        <h3><a href="https://github.com/iamishfaq07/KashRecon" target="_blank" rel="noopener">KashRecon</a></h3>
         <p>
           Custom reconnaissance tooling built for bug bounty work — the automation that turns a domain
           into a prioritised attack surface instead of a wall of subdomains.
         </p>
-        <ul class="tags">
-          <li class="tag">Python</li><li class="tag">Bash</li><li class="tag">Recon automation</li>
-        </ul>
-        <div class="proj-links">
-          <a href="https://github.com/iamishfaq07/KashRecon" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0C17.5 4.7 18.5 5 18.5 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
-            Source
-          </a>
-        </div>
-      </article>
+        <ul class="tags"><li>Python</li><li>Bash</li><li>Recon automation</li></ul>
+      </div>
+      <div class="aside">
+        <span class="status wip">Ongoing</span>
+        <a class="go" href="https://github.com/iamishfaq07/KashRecon" target="_blank" rel="noopener">
+          Source
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </article>
 
-      <article class="card proj tilt reveal">
-        <div class="proj-top">
-          <h3>Nuclei Template MCP</h3>
-          <span class="badge">Live</span>
-        </div>
+    <article class="proj reveal">
+      <span class="idx">03</span>
+      <div>
+        <h3><a href="https://github.com/iamishfaq07/Nuclei-Template-MCP" target="_blank" rel="noopener">Nuclei Template MCP</a></h3>
         <p>
           An MCP server for working with Nuclei templates — putting template authoring and lookup
           directly in reach of an AI assistant during a testing session.
         </p>
-        <ul class="tags">
-          <li class="tag">MCP</li><li class="tag">Nuclei</li><li class="tag">Tooling</li>
-        </ul>
-        <div class="proj-links">
-          <a href="https://github.com/iamishfaq07/Nuclei-Template-MCP" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0C17.5 4.7 18.5 5 18.5 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
-            Source
-          </a>
-        </div>
-      </article>
+        <ul class="tags"><li>MCP</li><li>Nuclei</li><li>Tooling</li></ul>
+      </div>
+      <div class="aside">
+        <span class="status">Live</span>
+        <a class="go" href="https://github.com/iamishfaq07/Nuclei-Template-MCP" target="_blank" rel="noopener">
+          Source
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </article>
 
-      <article class="card proj tilt reveal">
-        <div class="proj-top">
-          <h3>OSCP AutoPwn Framework</h3>
-          <span class="badge wip">Ongoing</span>
-        </div>
+    <article class="proj reveal">
+      <span class="idx">04</span>
+      <div>
+        <h3><a href="https://github.com/iamishfaq07/OSCP-AutoPwn-Framework" target="_blank" rel="noopener">OSCP AutoPwn Framework</a></h3>
         <p>
-          Exploitation automation built while grinding toward OSCP — the repetitive parts of enumeration
-          and initial access, scripted, so the time goes into the interesting half.
+          Exploitation automation built while grinding toward OSCP — the repetitive parts of
+          enumeration and initial access, scripted, so the time goes into the interesting half.
         </p>
-        <ul class="tags">
-          <li class="tag">Python</li><li class="tag">Offensive tooling</li><li class="tag">OSCP prep</li>
-        </ul>
-        <div class="proj-links">
-          <a href="https://github.com/iamishfaq07/OSCP-AutoPwn-Framework" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0C17.5 4.7 18.5 5 18.5 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
-            Source
-          </a>
-        </div>
-      </article>
-
-    </div>
+        <ul class="tags"><li>Python</li><li>Offensive tooling</li><li>OSCP prep</li></ul>
+      </div>
+      <div class="aside">
+        <span class="status wip">Ongoing</span>
+        <a class="go" href="https://github.com/iamishfaq07/OSCP-AutoPwn-Framework" target="_blank" rel="noopener">
+          Source
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </article>
   </div>
 </section>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="04">Experience</p>
-      <h2>The path so far</h2>
-    </div>
-    <ol class="timeline reveal">
-      <li>
-        <p class="tl-when">Jul 2024 — present</p>
-        <p class="tl-what">Sr. Application Security Engineer</p>
-        <p class="tl-where">R1RCM</p>
-        <p>
-          Built and scaled the enterprise AppSec program from inception — SAST/DAST/SCA tooling, OWASP
+<!-- ===================== experience ===================== -->
+<section id="experience" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">04</span>
+    <div><h2>The path so far</h2></div>
+  </div>
+  <div class="exp">
+    <article class="exp-row reveal">
+      <span class="when">Jul 2024 —<br>Present</span>
+      <div>
+        <h3>Sr. Application Security Engineer</h3>
+        <p class="where">R1RCM</p>
+        <p class="body">
+          Built and scaled the enterprise AppSec programme from inception — SAST/DAST/SCA tooling, OWASP
           governance and automated workflows to <strong>100% security coverage across 20+ engineering
           teams</strong>. Manual web and API testing to validate scanner findings, kill false positives and
-          surface business-logic flaws; Veracode, Burp Suite Pro and GHAS wired into CI/CD.
-          Triaged CVE reports by CVSS and resolved <strong>675+ critical Dependabot vulnerabilities in six
+          surface business-logic flaws; Veracode, Burp Suite Pro and GHAS wired into CI/CD. Triaged CVE
+          reports by CVSS and resolved <strong>675+ critical Dependabot vulnerabilities in six
           months</strong>. Ran AI/LLM penetration testing against the OWASP LLM Top 10. Real-time Power BI
-          security dashboards cut MTTR by 50%; work with 200+ developers cut post-release vulnerabilities
-          by 40%. Uncovered 150+ critical logic flaws (IDOR) and carried SOC 2 audit compliance through
-          in-house pentesting.
+          dashboards cut MTTR by 50%; work with 200+ developers cut post-release vulnerabilities by 40%.
+          Uncovered 150+ critical logic flaws (IDOR) and carried SOC 2 audit compliance through in-house
+          pentesting.
         </p>
-        <ul class="tags" style="list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;gap:7px">
-          <li class="tag">🏆 Employee of the Year 2025</li><li class="tag">675+ CVEs resolved</li>
-          <li class="tag">50% MTTR reduction</li><li class="tag">150+ logic flaws</li>
+        <ul class="wins">
+          <li>Employee of the Year 2025</li><li>675+ CVEs resolved</li>
+          <li>50% MTTR reduction</li><li>150+ logic flaws</li>
         </ul>
-      </li>
-      <li>
-        <p class="tl-when">Mar 2022 — Jul 2024</p>
-        <p class="tl-what">Subject Matter Expert — Security</p>
-        <p class="tl-where">SSGServ · Synology</p>
-        <p>
-          Conducted <strong>50+ pentests uncovering 220+ critical vulnerabilities</strong> (SSRF, RCE, IDOR)
-          across DAST and manual engagements. Drove SAST/DAST/SCA across the web application SDLC with
-          Fortify, Veracode, Burp Suite Pro and Black Duck. Managed cloud posture for 5+ Azure tenants
-          via Prisma Cloud, Azure Sentinel, Splunk, Tanium and Qualys — reaching <strong>95% CIS benchmark
-          compliance</strong>. Delivered end-to-end security programs for 15+ high-profile clients, driving
-          $500K+ in annual client revenue.
+      </div>
+    </article>
+
+    <article class="exp-row reveal">
+      <span class="when">Mar 2022 —<br>Jul 2024</span>
+      <div>
+        <h3>Subject Matter Expert — Security</h3>
+        <p class="where">SSGServ · Synology</p>
+        <p class="body">
+          Conducted <strong>50+ pentests uncovering 220+ critical vulnerabilities</strong> (SSRF, RCE,
+          IDOR) across DAST and manual engagements. Drove SAST/DAST/SCA across the web application SDLC
+          with Fortify, Veracode, Burp Suite Pro and Black Duck. Managed cloud posture for 5+ Azure
+          tenants via Prisma Cloud, Azure Sentinel, Splunk, Tanium and Qualys — reaching <strong>95% CIS
+          benchmark compliance</strong>. Delivered end-to-end security programmes for 15+ high-profile
+          clients, driving $500K+ in annual client revenue.
         </p>
-        <ul class="tags" style="list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;gap:7px">
-          <li class="tag">🏆 Employee of the Year 2023</li><li class="tag">🏆 Employee of the Month ×3</li>
-          <li class="tag">220+ vulns found</li><li class="tag">95% CIS compliance</li>
+        <ul class="wins">
+          <li>Employee of the Year 2023</li><li>Employee of the Month ×3</li>
+          <li>220+ vulns found</li><li>95% CIS compliance</li>
         </ul>
-      </li>
-      <li>
-        <p class="tl-when">Jan 2021 — Mar 2022</p>
-        <p class="tl-what">Security Engineer</p>
-        <p class="tl-where">BQE Software</p>
-        <p>
+      </div>
+    </article>
+
+    <article class="exp-row reveal">
+      <span class="when">Jan 2021 —<br>Mar 2022</span>
+      <div>
+        <h3>Security Engineer</h3>
+        <p class="where">BQE Software</p>
+        <p class="body">
           Web application security assessments using SAST, DAST and manual pentesting, with monthly
           infrastructure vulnerability audits and remediation tracking. Implemented network security
           with Cisco ASA, Firepower and Sophos SSL; configured site-to-site VPN and Layer 2 LAN
           controls. Built the core automation for vulnerability assessment, log parsing, backup and
           monitoring in Python and PowerShell.
         </p>
-      </li>
-      <li>
-        <p class="tl-when">Ongoing</p>
-        <p class="tl-what">Founder &amp; Curriculum Author</p>
-        <p class="tl-where">KashSec Academy</p>
-        <p>
+      </div>
+    </article>
+
+    <article class="exp-row reveal">
+      <span class="when">Ongoing</span>
+      <div>
+        <h3>Founder &amp; Curriculum Author</h3>
+        <p class="where">KashSec Academy</p>
+        <p class="body">
           Designed and wrote a 26-path, 485-lesson cybersecurity curriculum from scratch, plus 42
           interactive labs, 21 quizzes and timed mock exams — and built the delivery platform around it.
           Free, offline-capable, no account required.
         </p>
-      </li>
-    </ol>
+      </div>
+    </article>
   </div>
 </section>
 
-<section id="certs">
+<!-- ===================== certifications ===================== -->
+<section id="certs" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">05</span>
+    <div><h2>Paper trail</h2></div>
+  </div>
+  <div class="certs">
+    <div class="cert reveal"><h3>CEH Master</h3><p>Certified Ethical Hacker (Master) · EC-Council</p></div>
+    <div class="cert reveal"><h3>OSCP</h3><p><span class="tagx">In progress</span> · OffSec</p></div>
+    <div class="cert reveal"><h3>eJPT</h3><p>Junior Penetration Tester · INE</p></div>
+    <div class="cert reveal"><h3>Google Cybersecurity</h3><p>Professional Certificate · Google</p></div>
+    <div class="cert reveal"><h3>Foundry &amp; AIP Builder</h3><p>AI certification · Palantir</p></div>
+    <div class="cert reveal"><h3>NSE 2 · CNSS</h3><p>Fortinet Network Security Associate · ICSI Certified Network Security Specialist</p></div>
+  </div>
+  <p class="sec-sub reveal" style="margin-top:22px;font-size:.9rem">
+    Also: IBM Cybersecurity Tools &amp; Cyber Attacks · Microsoft Technical Associate · Burp Suite
+    Practitioner · CCNP Security training · PentesterLab Essential badge
+  </p>
+</section>
+
+<!-- ===================== awards ===================== -->
+<section id="awards" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">06</span>
+    <div><h2>Off the clock</h2></div>
+  </div>
+  <div class="two-col">
+    <div class="reveal">
+      <p class="label" style="margin:0 0 16px">Recognition</p>
+      <ul class="award-list">
+        <li><span>Employee of the Year</span><span class="who">R1RCM · 2025</span></li>
+        <li><span>Employee of the Year</span><span class="who">Synology · 2023</span></li>
+        <li><span>Employee of the Month ×3</span><span class="who">Synology</span></li>
+        <li><span>$500K+ annual client revenue</span><span class="who">15+ clients</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <p class="label" style="margin:0 0 16px">Interests</p>
+      <ul class="chips">
+        <li>Large language models</li><li>Bug bounty</li><li>Local inference</li>
+        <li>Gaming</li><li>Podcasts</li><li>Cars</li><li>Consumer tech</li><li>Cat dad — Zero</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== writing ===================== -->
+<section id="writing" class="wrap">
+  <div class="sec-head reveal">
+    <span class="num">07</span>
+    <div>
+      <h2>Writing</h2>
+      <p>Writeups, research notes and opinions on how security should be taught.</p>
+    </div>
+  </div>
+  <div class="post-list" id="latestPosts"><p class="loading">Loading posts…</p></div>
+  <p style="margin-top:30px"><a class="btn btn-ghost" data-magnet href="/blog.html">All posts</a></p>
+</section>
+
+<!-- ===================== contact ===================== -->
+<section id="contact" class="contact">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="05">Certifications</p>
-      <h2>Paper trail</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card skill-card tilt reveal">
-        <h3>CEH Master</h3>
-        <p style="color:var(--muted);font-size:.92rem;margin:0">Certified Ethical Hacker (Master) · EC-Council</p>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <h3>OSCP <span class="pill" style="margin-left:6px">In progress</span></h3>
-        <p style="color:var(--muted);font-size:.92rem;margin:0">Offensive Security Certified Professional · OffSec</p>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <h3>eJPT</h3>
-        <p style="color:var(--muted);font-size:.92rem;margin:0">Junior Penetration Tester · INE / eLearnSecurity</p>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <h3>Google Cybersecurity</h3>
-        <p style="color:var(--muted);font-size:.92rem;margin:0">Professional Certificate · Google</p>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <h3>Foundry &amp; AIP Builder</h3>
-        <p style="color:var(--muted);font-size:.92rem;margin:0">AI certification · Palantir</p>
-      </div>
-      <div class="card skill-card tilt reveal">
-        <h3>NSE 2 · CNSS</h3>
-        <p style="color:var(--muted);font-size:.92rem;margin:0">Network Security Associate · Fortinet — Certified Network Security Specialist · ICSI</p>
-      </div>
-    </div>
-    <p class="sec-sub reveal" style="margin-top:20px">
-      Also: IBM Cybersecurity Tools &amp; Cyber Attacks, Microsoft Technical Associate, Burp Suite
-      Practitioner, CCNP Security training, PentesterLab Essential badge.
+    <h2 data-split>Let's talk — <a href="mailto:bhatishfaq966@gmail.com">bhatishfaq966@gmail.com</a></h2>
+    <p>
+      Open to security roles, research collaborations, guest writing and anything that gets more
+      people into this field.
     </p>
-  </div>
-</section>
-
-<section id="writing">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="06">Writing</p>
-      <h2>Latest posts</h2>
-      <p class="sec-sub">Writeups, research notes and opinions on teaching security.</p>
-    </div>
-    <div class="post-list" id="latestPosts"><p class="loading">Loading posts…</p></div>
-    <p style="margin-top:22px"><a class="btn btn-ghost" href="/blog.html">All posts
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a></p>
-  </div>
-</section>
-
-<section id="awards">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="sec-kicker" data-n="07">Awards &amp; interests</p>
-      <h2>Off the clock</h2>
-    </div>
-    <div class="grid-2" style="margin-bottom:26px">
-      <div class="award reveal">
-        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v6a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg></span>
-        <span><b>Employee of the Year</b><span>R1RCM · 2025</span></span>
-      </div>
-      <div class="award reveal">
-        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v6a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg></span>
-        <span><b>Employee of the Year</b><span>Synology · 2023</span></span>
-      </div>
-      <div class="award reveal">
-        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V7l-8-4Z"/></svg></span>
-        <span><b>Employee of the Month ×3</b><span>Synology</span></span>
-      </div>
-      <div class="award reveal">
-        <span class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></span>
-        <span><b>$500K+ annual client revenue</b><span>Security programs for 15+ clients</span></span>
-      </div>
-    </div>
-    <ul class="chips reveal">
-      <li>Large language models</li><li>Bug bounty research</li><li>Local LLM inference</li>
-      <li>Gaming</li><li>Podcasts</li><li>Cars</li><li>Consumer tech</li><li>Cat dad — Zero</li>
-    </ul>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-card reveal">
-      <h2>Let's talk</h2>
-      <p>
-        Open to security roles, research collaborations, guest writing and anything that gets more
-        people into this field. Fastest way to reach me is email.
-      </p>
-      <div class="social-row">
-        <a class="btn btn-primary" data-magnet href="mailto:bhatishfaq966@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          bhatishfaq966@gmail.com
-        </a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/iamishfaq07/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.2V21h-4v-6c0-1.6-.03-3.65-2.22-3.65-2.23 0-2.57 1.73-2.57 3.53V21h-4V9Z"/></svg>
-          LinkedIn
-        </a>
-        <a class="btn btn-ghost" href="https://github.com/iamishfaq07" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0C17.5 4.7 18.5 5 18.5 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
-          GitHub
-        </a>
-              <a class="btn btn-ghost" href="tel:+917006286454">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4Z"/></svg>
-          +91 7006286454
-        </a>
-</div>
+    <div class="social-row">
+      <a class="btn btn-primary" data-magnet href="mailto:bhatishfaq966@gmail.com">Email</a>
+      <a class="btn btn-ghost" data-magnet href="https://www.linkedin.com/in/iamishfaq07/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" data-magnet href="https://github.com/iamishfaq07" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" data-magnet href="tel:+917006286454">+91 7006286454</a>
     </div>
   </div>
 </section>
